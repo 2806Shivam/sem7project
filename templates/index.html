@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Match Predictor</title>
+    <style>
+        .container{
+            border-radius: 50px;
+            margin-top: 50px;
+            text-align: center;
+            border: 1px solid black;
+            max-width: 850px;
+            margin-left:200px;
+            background-color: aqua;
+        }
+        h1{
+            text-align: center;
+            color:red;
+        }
+        label{
+            color: purple;
+        }
+        button{
+            border-radius: 10px;
+            height: 40px;
+            width: 120px;
+            border: 1px solid #ff523b;
+        }
+        body{
+            background: radial-gradient(#fff,#ff523b);
+        }
+        p{
+            color: blue;
+            font-size: large;
+        }
+        h2{
+            color: indigo;
+        }
+        hr{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>2027 Cricket World Cup Match Winner Prediction</h1><hr>
+    <p>Model Accuracy: {{ accuracy }}%</p>
+
+    <form action="/predict" method="post">
+        <label for="team_1">Team 1:</label>
+        <input type="text" id="team_1" name="team_1" required>
+        <br><br>
+        
+        <label for="team_2">Team 2:</label>
+        <input type="text" id="team_2" name="team_2" required>
+        <br><br>
+        <button type="submit" value="Predict"><b>Predict</b></button><hr><br>ven
+    </form>
+
+    {% if predicted_winner %}
+        <h2>Predicted Winner:</h2>
+        <p>The predicted winner between {{ team_1 }} and {{ team_2 }} is <b>{{ predicted_winner }}</b>.</p>
+    {% endif %}
+    </div>
+</body>
+</html>
